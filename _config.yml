@@ -1,0 +1,50 @@
+# Jekyll configuration — Security Research portfolio website
+title: Security Research
+description: >-
+  Independent security research and open-source software auditing.
+  Source-code audits of PHP, OpenSSL, OpenSSH, xrdp, and Node.js with
+  verified, responsibly disclosed findings.
+url: "https://sahan-chathumina-25.github.io"
+baseurl: "/Security-Researches"
+lang: en
+author: Sahan Chathumina
+github_username: Sahan-Chathumina-25
+repository: Sahan-Chathumina-25/Security-Researches
+
+theme: jekyll-theme-cayman
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  toc_levels: 2..3
+
+plugins:
+  - jekyll-seo-tag
+
+include:
+  - _pages
+
+# Repository documentation files are for GitHub browsing; the website is
+# built from the dedicated _pages/ collection below, so internal links never
+# break across the two contexts.
+exclude:
+  - README.md
+  - ABOUT.md
+  - METHODOLOGY.md
+  - FINDINGS-INDEX.md
+  - RESEARCH-ROADMAP.md
+  - REFERENCES.md
+  - TOOLS-AND-ENVIRONMENT.md
+  - CONTRIBUTING.md
+  - SECURITY.md
+  - LICENSE
+  - projects
+  - findings
+  - docs
+  - .github
+  - Gemfile*
+  - vendor
+
+sass:
+  style: compressed

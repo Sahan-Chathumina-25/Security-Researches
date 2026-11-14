@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240" role="img" aria-label="Security Research — Independent Security Research and Open-Source Software Auditing">
+  <style>
+    .t1 { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 58px; font-weight: 700; letter-spacing: 10px; fill: #e6edf3; }
+    .t2 { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 21px; letter-spacing: 1px; fill: #8b949e; }
+    .rule { stroke: #30363d; stroke-width: 2; }
+    .accent { fill: #58a6ff; }
+  </style>
+  <rect width="1200" height="240" fill="#0d1117"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#58a6ff"/>
+  <rect x="0" y="236" width="1200" height="4" fill="#21262d"/>
+  <rect x="80" y="72" width="6" height="96" class="accent"/>
+  <text x="110" y="118" class="t1">SECURITY RESEARCH</text>
+  <text x="112" y="158" class="t2">Independent Security Research &amp; Open-Source Software Auditing</text>
+  <line x1="110" y1="186" x2="1120" y2="186" class="rule"/>
+</svg>
