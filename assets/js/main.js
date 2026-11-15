@@ -180,8 +180,8 @@
 
     var density = function () {
       /* Responsive density: fewer particles on small/low-power screens. */
-      var base = window.innerWidth < 640 ? 32 : 64;
-      if (window.innerWidth < 380) base = 24;
+      var base = window.innerWidth < 640 ? 36 : 72;
+      if (window.innerWidth < 380) base = 26;
       return base;
     };
 
@@ -191,11 +191,11 @@
       return {
         x: Math.random() * canvas.width,
         y: initial ? Math.random() * canvas.height : canvas.height + 12,
-        r: 0.7 + Math.random() * 1.3,
+        r: 0.8 + Math.random() * 1.4,
         vx: Math.cos(angle) * speed * 0.4,
         vy: Math.sin(angle) * speed,
         phase: Math.random() * Math.PI * 2,
-        alpha: 0.18 + Math.random() * 0.26,
+        alpha: 0.25 + Math.random() * 0.3,
         tint: Math.random() > 0.4 ? BLUE : CYAN
       };
     };
