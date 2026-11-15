@@ -161,4 +161,151 @@
       spy.observe(section);
     });
   }
+
+  /* ---------- Background particle network (Layer B) ---------- */
+  var canvas = doc.getElementById('bg-particles');
+  var particlesEnabled =
+    canvas &&
+    canvas.getContext &&
+    !reducedMotion.matches;
+
+  if (particlesEnabled) {
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var running = false;
+    var rafId = null;
+    var dpr = 1;
+    var BLUE = '79, 141, 255';
+    var CYAN = '42, 212, 200';
+
+    var density = function () {
+      /* Responsive density: fewer particles on small/low-power screens. */
+      var base = window.innerWidth < 640 ? 26 : 54;
+      if (window.innerWidth < 380) base = 20;
+      return base;
+    };
+
+    var spawn = function (initial) {
+      var speed = 6 + Math.random() * 18;
+      var angle = -Math.PI / 2 + (Math.random() - 0.5) * 0.9;
+      return {
+        x: Math.random() * canvas.width,
+        y: initial ? Math.random() * canvas.height : canvas.height + 12,
+        r: 0.6 + Math.random() * 1.2,
+        vx: Math.cos(angle) * speed * 0.4,
+        vy: Math.sin(angle) * speed,
+        phase: Math.random() * Math.PI * 2,
+        alpha: 0.12 + Math.random() * 0.2,
+        tint: Math.random() > 0.4 ? BLUE : CYAN
+      };
+    };
+
+    var resize = function () {
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
+      var count = density();
+      particles.length = 0;
+      for (var i = 0; i < count; i++) {
+        particles.push(spawn(true));
+      }
+    };
+
+    var draw = function (dt) {
+      var w = canvas.width;
+      var h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.phase += dt * 0.9;
+        p.x += (p.vx + Math.sin(p.phase) * 3) * dt;
+        p.y += p.vy * dt;
+        if (p.y < -16 || p.x < -24 || p.x > w + 24) {
+          particles[i] = spawn(false);
+          continue;
+        }
+        var twinkle = 0.75 + Math.sin(p.phase * 1.6) * 0.25;
+        var a = p.alpha * twinkle * dpr;
+        /* soft halo */
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(' + p.tint + ',' + (a * 0.35).toFixed(3) + ')';
+        ctx.arc(p.x, p.y, p.r * 3.2 * dpr, 0, Math.PI * 2);
+        ctx.fill();
+        /* core */
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(' + p.tint + ',' + a.toFixed(3) + ')';
+        ctx.arc(p.x, p.y, p.r * dpr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    var frame = function (ts) {
+      if (!running) {
+        rafId = null;
+        return;
+      }
+      if (last === null) last = ts;
+      var dt = Math.min((ts - last) / 1000, 0.05);
+      last = ts;
+      draw(dt);
+      rafId = window.requestAnimationFrame(frame);
+    };
+
+    var start = function () {
+      if (running || document.hidden) return;
+      running = true;
+      last = null;
+      rafId = window.requestAnimationFrame(frame);
+    };
+
+    var stop = function () {
+      running = false;
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    var last = null;
+    var resizeTimer = null;
+
+    resize();
+    start();
+
+    window.addEventListener(
+      'resize',
+      function () {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(resize, 150);
+      },
+      { passive: true }
+    );
+
+    doc.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        stop();
+      } else {
+        start();
+      }
+    });
+
+    /* Respect live reduced-motion changes */
+    reducedMotion.addEventListener
+      ? reducedMotion.addEventListener('change', function (e) {
+          if (e.matches) {
+            stop();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          } else {
+            start();
+          }
+        })
+      : reducedMotion.addListener(function (e) {
+          if (e.matches) {
+            stop();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          } else {
+            start();
+          }
+        });
+  }
 })();

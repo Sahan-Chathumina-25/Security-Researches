@@ -411,17 +411,6 @@ svg {
   z-index: -1;
 }
 
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(146, 168, 209, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(146, 168, 209, 0.055) 1px, transparent 1px);
-  background-size: 44px 44px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, black 35%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, black 35%, transparent 75%);
-}
-
 .hero-glow {
   position: absolute;
   border-radius: 50%;
@@ -1485,8 +1474,160 @@ svg {
   }
 }
 
+/* ---------- 18. Animated site background ---------- */
+/* Fixed atmosphere behind all content: aurora → particles → grid → vignette. */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* Layer A — animated aurora */
+.aurora {
+  position: absolute;
+  display: block;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.aurora--one {
+  top: -22vmax;
+  left: -16vmax;
+  background: radial-gradient(circle, rgba(79, 141, 255, 0.16), transparent 68%);
+  animation: aurora-drift-a 52s ease-in-out infinite alternate;
+}
+
+.aurora--two {
+  right: -20vmax;
+  top: 10vmax;
+  background: radial-gradient(circle, rgba(42, 212, 200, 0.11), transparent 68%);
+  animation: aurora-drift-b 64s ease-in-out infinite alternate;
+}
+
+.aurora--three {
+  bottom: -26vmax;
+  left: 22vmax;
+  width: 52vmax;
+  height: 52vmax;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.09), transparent 68%);
+  animation: aurora-drift-c 76s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(16vmax, 9vmax, 0) scale(1.12);
+  }
+}
+
+@keyframes aurora-drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.08);
+  }
+  to {
+    transform: translate3d(-13vmax, 11vmax, 0) scale(0.95);
+  }
+}
+
+@keyframes aurora-drift-c {
+  from {
+    transform: translate3d(0, 0, 0) scale(0.94);
+  }
+  to {
+    transform: translate3d(11vmax, -12vmax, 0) scale(1.1);
+  }
+}
+
+/* Layer B — particles (canvas, drawn by main.js) */
+.bg-particles {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Layer C — technical grid with soft glow pockets */
+.bg-grid {
+  background-image:
+    radial-gradient(420px 420px at 78% 18%, rgba(79, 141, 255, 0.06), transparent 70%),
+    radial-gradient(520px 520px at 12% 78%, rgba(42, 212, 200, 0.05), transparent 70%),
+    linear-gradient(rgba(146, 168, 209, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(146, 168, 209, 0.045) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 40%, transparent 88%);
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 40%, transparent 88%);
+}
+
+/* Slow-moving light sweeping across the grid */
+.bg-grid::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 42vmax;
+  height: 42vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 141, 255, 0.05), transparent 66%);
+  filter: blur(40px);
+  animation: grid-sweep 90s linear infinite;
+}
+
+@keyframes grid-sweep {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(170vw, 70vh, 0);
+  }
+  100% {
+    transform: translate3d(340vw, 0, 0);
+  }
+}
+
+/* Readability vignette over the atmosphere */
+.bg-vignette {
+  background: radial-gradient(130% 100% at 50% 30%, transparent 55%, rgba(8, 12, 24, 0.6) 100%);
+}
+
+/* Lower GPU cost on small/low-power devices */
+@media (max-width: 640px) {
+  .aurora {
+    filter: blur(70px);
+    opacity: 0.42;
+  }
+
+  .bg-grid::after {
+    display: none;
+  }
+}
+
+/* ---------- 19. Reduced motion (background layers) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+  }
+
+  .bg-grid::after {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (min-width: 1600px) {
   :root {
     --container: 1140px;
   }
 }
+

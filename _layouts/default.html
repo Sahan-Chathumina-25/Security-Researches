@@ -10,6 +10,7 @@
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+  {% include site-bg.html %}
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   {% include nav.html %}
