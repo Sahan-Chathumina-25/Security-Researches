@@ -1,10 +1,11 @@
 ---
+description: "Profile of an independent security researcher: research interests, technical focus, and evidence discipline across five open-source audits."
 layout: default
 permalink: /about/
 title: About
+eyebrow: Researcher profile
+lede: The public documentation layer of an independent security research program.
 ---
-
-# About
 
 ## What this portfolio is
 

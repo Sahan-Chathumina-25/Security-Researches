@@ -1,10 +1,11 @@
 ---
+description: "The evidence-driven, phase-based research process: pinned source, triaged analysis, controlled verification, patch validation, and reporting."
 layout: default
 permalink: /methodology/
 title: Methodology
+eyebrow: Research process
+lede: An evidence-driven, phase-based process applied identically to every project.
 ---
-
-# Methodology
 
 Each project follows an evidence-driven, phase-based process. What is
 constant across projects is the evidence chain: pinned source → triaged

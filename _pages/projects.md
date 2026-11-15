@@ -1,10 +1,11 @@
 ---
+description: "Five completed source-code audits: PHP, OpenSSL, OpenSSH, xrdp, and Node.js — versions audited, confirmed findings, and verification highlights."
 layout: default
 permalink: /projects/
 title: Projects
+eyebrow: Research projects
+lede: Five completed research projects, each performed against a pinned upstream revision.
 ---
-
-# Projects
 
 Five completed research projects. Each was performed against a pinned
 upstream revision, verified dynamically where possible, and closed with a

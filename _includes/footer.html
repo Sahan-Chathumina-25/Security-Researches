@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-identity">
+        <svg class="brand-mark" width="26" height="26" viewBox="0 0 34 34" fill="none" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="footer-grad" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#4f8dff"/>
+              <stop offset="1" stop-color="#2ad4c8"/>
+            </linearGradient>
+          </defs>
+          <path d="M17 2.5 30 7.5v9.2c0 7.6-5.4 13-13 15.8-7.6-2.8-13-8.2-13-15.8V7.5L17 2.5Z" stroke="url(#footer-grad)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M17 10v8" stroke="url(#footer-grad)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="17" cy="22" r="1.6" fill="url(#footer-grad)"/>
+        </svg>
+        <span class="footer-name">{{ site.title }}</span>
+      </div>
+      <p class="footer-desc">
+        Independent security research and open-source software auditing.
+        Source-code audits of PHP, OpenSSL, OpenSSH, xrdp, and Node.js with
+        verified, responsibly disclosed findings.
+      </p>
+      <p class="footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All research documentation released under the repository license.</p>
+    </div>
+
+    <div class="footer-links-group">
+      <h2 class="footer-heading">Portfolio</h2>
+      <ul class="footer-links">
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+        <li><a href="{{ '/findings/' | relative_url }}">Findings</a></li>
+        <li><a href="{{ '/methodology/' | relative_url }}">Methodology</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links-group">
+      <h2 class="footer-heading">Connect</h2>
+      <ul class="footer-links">
+        <li><a href="https://github.com/{{ site.github_username }}" rel="noopener noreferrer" target="_blank">GitHub profile</a></li>
+        <li><a href="https://github.com/{{ site.github_username }}/Security-Researches" rel="noopener noreferrer" target="_blank">Research repository</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

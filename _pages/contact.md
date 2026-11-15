@@ -1,10 +1,11 @@
 ---
+description: "Professional contact channels and responsible-disclosure coordination for the Security Research portfolio."
 layout: default
 permalink: /contact/
 title: Contact
+eyebrow: Get in touch
+lede: Professional contact channels and disclosure coordination.
 ---
-
-# Contact
 
 Professional contact is currently limited to the GitHub profile. No other
 channels are published; nothing else has been verified from the research

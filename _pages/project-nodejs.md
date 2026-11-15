@@ -1,10 +1,11 @@
 ---
+description: "Node.js HEAD audit: residual https Agent TLS-policy isolation bypass confirmed on a freshly built HEAD binary with a control experiment."
 layout: default
 permalink: /projects/nodejs/
 title: Node.js HEAD (v28.0.0-pre)
+eyebrow: Project 05
+lede: Audit of the Node.js https Agent TLS-policy isolation machinery confirming a residual verification bypass.
 ---
-
-# Node.js HEAD (v28.0.0-pre)
 
 **Audit of the Node.js `https` Agent TLS-policy isolation machinery that
 confirmed a residual verification bypass in a shipped security-fix

@@ -1,0 +1,336 @@
+---
+layout: default
+permalink: /
+title: Security Research — Independent Security Research & Open-Source Software Auditing
+---
+
+<section class="section" id="research-stats" data-nav-section="{{ '/' | relative_url }}">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Research overview</p>
+      <h2 class="section-title">Documented, evidence-backed research</h2>
+      <p class="section-lede">
+        Statistics are derived strictly from the research records (audit dates
+        2026-10-24 through 2026-11-14). No finding is fictional; no severity or
+        disclosure outcome is claimed beyond what the research record supports.
+      </p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal" style="--reveal-order: 0">
+        <span class="stat-value" data-count-to="5">5</span>
+        <span class="stat-label">Completed Research Projects</span>
+      </div>
+      <div class="stat-card reveal" style="--reveal-order: 1">
+        <span class="stat-value" data-count-to="11">11</span>
+        <span class="stat-label">Confirmed Findings</span>
+      </div>
+      <div class="stat-card reveal" style="--reveal-order: 2">
+        <span class="stat-value" data-count-to="5">5</span>
+        <span class="stat-label">Potential Findings</span>
+      </div>
+      <div class="stat-card reveal" style="--reveal-order: 3">
+        <span class="stat-value" data-count-to="3">3</span>
+        <span class="stat-label">Informational Observations</span>
+      </div>
+    </div>
+    <p class="stat-note reveal">
+      CVE identifiers claimed: 0 — severity values are researcher proposals,
+      left for vendor triage to finalize.
+    </p>
+  </div>
+</section>
+
+<section class="section section--tint" id="featured-projects" data-nav-section="{{ '/projects/' | relative_url }}">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Featured projects</p>
+      <h2 class="section-title">Five completed source-code audits</h2>
+      <p class="section-lede">
+        Each project was performed against a pinned upstream revision, verified
+        dynamically where possible, and closed with a prepared vendor report.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="card project-card reveal" style="--reveal-order: 0">
+        <div class="project-card-top">
+          <span class="project-index">01 / PHP</span>
+          <span class="badge badge--verified">Audit complete</span>
+        </div>
+        <h3 class="card-title"><a href="{{ '/projects/php/' | relative_url }}">PHP (php-src)</a></h3>
+        <p class="card-desc">
+          Audit of the PHP interpreter's upstream development tree — mbstring
+          regex replacement, the RFC 3986/WHATWG URI parsers, and bcmath —
+          with runtime verification on two locally built sanitizer binaries.
+        </p>
+        <ul class="tag-list" aria-label="Research areas">
+          <li class="tag">C</li>
+          <li class="tag">Interpreter extensions</li>
+          <li class="tag">Memory safety</li>
+        </ul>
+        <ul class="project-facts">
+          <li><span class="fact-label">Version</span> 8.7.0-dev master</li>
+          <li><span class="fact-label">Findings</span> 3 confirmed (2 High, 1 Low)</li>
+        </ul>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/projects/php/' | relative_url }}">View project</a>
+        </div>
+      </article>
+
+      <article class="card project-card reveal" style="--reveal-order: 1">
+        <div class="project-card-top">
+          <span class="project-index">02 / OpenSSL</span>
+          <span class="badge badge--verified">Patch-validated</span>
+        </div>
+        <h3 class="card-title"><a href="{{ '/projects/openssl/' | relative_url }}">OpenSSL</a></h3>
+        <p class="card-desc">
+          Parallel deep audit of the OpenSSL upstream development tree across
+          ASN.1/X.509, TLS/DTLS, and QUIC, with a confirmed OOB heap read
+          validated by a two-line fix and the full official test suite.
+        </p>
+        <ul class="tag-list" aria-label="Research areas">
+          <li class="tag">TLS</li>
+          <li class="tag">ASN.1</li>
+          <li class="tag">QUIC</li>
+        </ul>
+        <ul class="project-facts">
+          <li><span class="fact-label">Version</span> 4.2.0-dev master</li>
+          <li><span class="fact-label">Findings</span> 1 confirmed (Medium)</li>
+        </ul>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/projects/openssl/' | relative_url }}">View project</a>
+        </div>
+      </article>
+
+      <article class="card project-card reveal" style="--reveal-order: 2">
+        <div class="project-card-top">
+          <span class="project-index">03 / OpenSSH</span>
+          <span class="badge badge--accent">Disclosure prep</span>
+        </div>
+        <h3 class="card-title"><a href="{{ '/projects/openssh/' | relative_url }}">OpenSSH</a></h3>
+        <p class="card-desc">
+          Comprehensive audit of OpenSSH Portable combining manual review,
+          multiple static analyzers, sanitizer builds, and finding-level
+          dynamic verification — including the 10.6-new agent socket manager.
+        </p>
+        <ul class="tag-list" aria-label="Research areas">
+          <li class="tag">SSH protocol</li>
+          <li class="tag">Static analysis</li>
+          <li class="tag">Portability</li>
+        </ul>
+        <ul class="project-facts">
+          <li><span class="fact-label">Version</span> V_10_6_P1</li>
+          <li><span class="fact-label">Findings</span> 1 Low + 1 informational</li>
+        </ul>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/projects/openssh/' | relative_url }}">View project</a>
+        </div>
+      </article>
+
+      <article class="card project-card reveal" style="--reveal-order: 3">
+        <div class="project-card-top">
+          <span class="project-index">04 / xrdp</span>
+          <span class="badge badge--verified">Full 12-phase audit</span>
+        </div>
+        <h3 class="card-title"><a href="{{ '/projects/xrdp/' | relative_url }}">xrdp</a></h3>
+        <p class="card-desc">
+          Full 12-phase defensive source audit of the xrdp RDP server's
+          complete network data path — transport, channel protocol, and
+          chansrv modules — with seven validation-backed findings and
+          validated fixes.
+        </p>
+        <ul class="tag-list" aria-label="Research areas">
+          <li class="tag">RDP</li>
+          <li class="tag">Protocol parsing</li>
+          <li class="tag">Hardening</li>
+        </ul>
+        <ul class="project-facts">
+          <li><span class="fact-label">Version</span> v0.10.6.1</li>
+          <li><span class="fact-label">Findings</span> 7 confirmed (2 fixed upstream)</li>
+        </ul>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/projects/xrdp/' | relative_url }}">View project</a>
+        </div>
+      </article>
+
+      <article class="card project-card reveal" style="--reveal-order: 4">
+        <div class="project-card-top">
+          <span class="project-index">05 / Node.js</span>
+          <span class="badge badge--accent">Severity triage pending</span>
+        </div>
+        <h3 class="card-title"><a href="{{ '/projects/nodejs/' | relative_url }}">Node.js</a></h3>
+        <p class="card-desc">
+          Audit of the https Agent TLS-policy isolation machinery that
+          confirmed a residual verification bypass in a shipped security-fix
+          cluster — reproduced on a freshly built HEAD binary with a control
+          experiment.
+        </p>
+        <ul class="tag-list" aria-label="Research areas">
+          <li class="tag">JavaScript runtime</li>
+          <li class="tag">TLS policy</li>
+          <li class="tag">Session reuse</li>
+        </ul>
+        <ul class="project-facts">
+          <li><span class="fact-label">Version</span> HEAD v28.0.0-pre</li>
+          <li><span class="fact-label">Findings</span> 1 confirmed (High, proposed)</li>
+        </ul>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/projects/nodejs/' | relative_url }}">View project</a>
+        </div>
+      </article>
+
+      <article class="card project-card reveal" style="--reveal-order: 5">
+        <div class="project-card-top">
+          <span class="project-index">Archive</span>
+          <span class="badge badge--info">Full record</span>
+        </div>
+        <h3 class="card-title"><a href="https://github.com/{{ site.github_username }}/Security-Researches/tree/main/projects" rel="noopener noreferrer" target="_blank">Complete project archives</a></h3>
+        <p class="card-desc">
+          Per-project methodology documents, build variants, analyzer output,
+          verification harnesses, and vendor-ready reports live in the
+          GitHub repository.
+        </p>
+        <ul class="tag-list" aria-label="Archive contents">
+          <li class="tag">Audit reports</li>
+          <li class="tag">Verification</li>
+          <li class="tag">Disclosure prep</li>
+        </ul>
+        <div class="card-foot">
+          <a class="card-link" href="https://github.com/{{ site.github_username }}/Security-Researches/tree/main/projects" rel="noopener noreferrer" target="_blank">Browse repository</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="methodology-preview" data-nav-section="{{ '/methodology/' | relative_url }}">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Methodology</p>
+      <h2 class="section-title">How each audit is performed</h2>
+      <p class="section-lede">
+        A constant evidence chain across projects: pinned source → triaged
+        analysis → controlled verification → patch validation → report.
+      </p>
+    </div>
+
+    <ol class="timeline timeline--preview">
+      <li class="timeline-step reveal" style="--reveal-order: 0">
+        <span class="timeline-marker" aria-hidden="true">1</span>
+        <div class="timeline-body">
+          <h3>Source Acquisition</h3>
+          <p>Official upstream repositories at a pinned commit or tag, signatures verified where available.</p>
+        </div>
+      </li>
+      <li class="timeline-step reveal" style="--reveal-order: 1">
+        <span class="timeline-marker" aria-hidden="true">2</span>
+        <div class="timeline-body">
+          <h3>Codebase Understanding</h3>
+          <p>Baseline builds and written architecture documents produced before any auditing begins.</p>
+        </div>
+      </li>
+      <li class="timeline-step reveal" style="--reveal-order: 2">
+        <span class="timeline-marker" aria-hidden="true">3</span>
+        <div class="timeline-body">
+          <h3>Attack Surface Mapping</h3>
+          <p>Trust boundaries, process model, and privilege levels established for factual impact assessment.</p>
+        </div>
+      </li>
+      <li class="timeline-step reveal" style="--reveal-order: 3">
+        <span class="timeline-marker" aria-hidden="true">4</span>
+        <div class="timeline-body">
+          <h3>Security Auditing</h3>
+          <p>Static analysis with every report triaged, plus deep manual review of parsing and memory-critical paths.</p>
+        </div>
+      </li>
+      <li class="timeline-step reveal" style="--reveal-order: 4">
+        <span class="timeline-marker" aria-hidden="true">5</span>
+        <div class="timeline-body">
+          <h3>Finding Verification</h3>
+          <p>Sanitizer builds, Valgrind cross-checks, purpose-built harnesses, and mandatory control experiments.</p>
+        </div>
+      </li>
+      <li class="timeline-step reveal" style="--reveal-order: 5">
+        <span class="timeline-marker" aria-hidden="true">6</span>
+        <div class="timeline-body">
+          <h3>Responsible Disclosure</h3>
+          <p>Confidential vendor reports held for official security policies; public docs redacted until patched.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="section-head section-head--center" style="margin-top: 2.25rem; margin-bottom: 0;">
+      <a class="btn btn--ghost reveal" href="{{ '/methodology/' | relative_url }}">Read the full methodology</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="findings-preview" data-nav-section="{{ '/findings/' | relative_url }}">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Findings</p>
+      <h2 class="section-title">Categorized by verification status</h2>
+      <p class="section-lede">
+        Because no finding has been submitted to a vendor yet, public reports
+        are deliberately redacted: root cause, impact scope, and verification
+        methodology are described — PoC code, trigger inputs, and reproduction
+        steps for unpatched issues are withheld.
+      </p>
+    </div>
+
+    <div class="findings-grid">
+      <article class="card finding-card finding-card--verified reveal" style="--reveal-order: 0">
+        <span class="finding-count">11</span>
+        <span class="badge badge--verified">Confirmed</span>
+        <p class="card-desc" style="margin-top: 0.75rem">
+          Reproduced under a sanitizer or proven statically, each with its own
+          evidence basis — including two xrdp findings corresponding to
+          already-fixed upstream CVEs.
+        </p>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/findings/' | relative_url }}">Confirmed findings</a>
+        </div>
+      </article>
+
+      <article class="card finding-card finding-card--potential reveal" style="--reveal-order: 1">
+        <span class="finding-count">5</span>
+        <span class="badge badge--potential">Potential</span>
+        <p class="card-desc" style="margin-top: 0.75rem">
+          Argued from code but not yet runtime-verified (or only partially).
+          Statuses are never upgraded without evidence.
+        </p>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/findings/' | relative_url }}">Potential findings</a>
+        </div>
+      </article>
+
+      <article class="card finding-card finding-card--info reveal" style="--reveal-order: 2">
+        <span class="finding-count">3</span>
+        <span class="badge badge--info">Informational</span>
+        <p class="card-desc" style="margin-top: 0.75rem">
+          Real defects without established security impact, verified under
+          independent tools. False positives screened and cleared are also
+          kept on record.
+        </p>
+        <div class="card-foot">
+          <a class="card-link" href="{{ '/findings/' | relative_url }}">Informational observations</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="cta-band-inner">
+        <div>
+          <h2>Explore the complete research record</h2>
+          <p>Per-finding reports, project archives, and disclosure status — all in the GitHub repository.</p>
+        </div>
+        <a class="btn btn--primary" href="https://github.com/{{ site.github_username }}/Security-Researches" rel="noopener noreferrer" target="_blank">Open the repository</a>
+      </div>
+    </div>
+  </div>
+</section>

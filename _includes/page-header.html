@@ -1,0 +1,25 @@
+<header class="page-header">
+  <div class="container">
+    {% assign parts = page.url | split: '/' %}
+    {% if parts.size > 2 %}
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          {% if parts[1] == 'projects' and parts[2] %}
+            <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+            <li aria-current="page">{{ page.breadcrumb_label | default: page.title }}</li>
+          {% else %}
+            <li aria-current="page">{{ page.breadcrumb_label | default: page.title }}</li>
+          {% endif %}
+        </ol>
+      </nav>
+    {% endif %}
+    {% if page.eyebrow %}
+      <p class="eyebrow">{{ page.eyebrow }}</p>
+    {% endif %}
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.lede %}
+      <p class="page-lede">{{ page.lede }}</p>
+    {% endif %}
+  </div>
+</header>

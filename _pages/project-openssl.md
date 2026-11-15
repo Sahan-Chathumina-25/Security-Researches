@@ -1,10 +1,11 @@
 ---
+description: "OpenSSL 4.2.0-dev audit: 1 confirmed CCM OOB heap read (Medium), patch-validated against the full official test suite."
 layout: default
 permalink: /projects/openssl/
 title: OpenSSL 4.2.0-dev
+eyebrow: Project 02
+lede: Parallel deep audit of the OpenSSL upstream development tree with a patch-validated confirmed defect.
 ---
-
-# OpenSSL 4.2.0-dev
 
 **Parallel deep audit of the OpenSSL upstream development tree across the
 main parsing and cryptography surfaces, with a patch-validated confirmed

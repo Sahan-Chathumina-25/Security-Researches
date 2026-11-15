@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  {% seo %}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  {% include nav.html %}
+
+  <main id="main-content" class="site-main" tabindex="-1">
+    {% unless page.hide_header %}
+      {% if page.url == '/' %}
+        {% include home-hero.html %}
+      {% else %}
+        {% include page-header.html %}
+      {% endif %}
+    {% endunless %}
+    {% if page.url == '/' %}
+      {{ content }}
+    {% else %}
+      <div class="container">
+        <div class="prose">
+          {{ content }}
+        </div>
+      </div>
+    {% endif %}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

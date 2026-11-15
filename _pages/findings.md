@@ -1,10 +1,11 @@
 ---
+description: "All security-relevant results categorized by verification status: 11 confirmed, 5 potential, and 3 informational observations."
 layout: default
 permalink: /findings/
 title: Findings
+eyebrow: Research record
+lede: All security-relevant results, categorized by verification status as recorded in the research archive.
 ---
-
-# Findings
 
 All security-relevant results, categorized by verification status as
 recorded in the research archive. Because no finding has been submitted to

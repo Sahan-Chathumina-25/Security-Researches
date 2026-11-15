@@ -1,11 +1,57 @@
-<nav class="site-nav">
-  <ul>
-    <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
-    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-    <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-    <li><a href="{{ '/findings/' | relative_url }}">Findings</a></li>
-    <li><a href="{{ '/methodology/' | relative_url }}">Methodology</a></li>
-    <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-    <li><a href="https://github.com/{{ site.github_username }}/Security-Researches">Repository</a></li>
-  </ul>
-</nav>
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
+      <svg class="brand-mark" width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="brand-grad" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4f8dff"/>
+            <stop offset="1" stop-color="#2ad4c8"/>
+          </linearGradient>
+        </defs>
+        <path d="M17 2.5 30 7.5v9.2c0 7.6-5.4 13-13 15.8-7.6-2.8-13-8.2-13-15.8V7.5L17 2.5Z" stroke="url(#brand-grad)" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M17 10v8" stroke="url(#brand-grad)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="17" cy="22" r="1.6" fill="url(#brand-grad)"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">{{ site.title }}</span>
+        <span class="brand-sub">Research Portfolio</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        {% assign nav_items = '/' | split: ',' %}
+        <li><a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} is-active{% endif %}">Home</a></li>
+        <li><a href="{{ '/about/' | relative_url }}" class="nav-link{% if page.url == '/about/' %} is-active{% endif %}">About</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}" class="nav-link{% if page.url contains '/projects/' %} is-active{% endif %}">Projects</a></li>
+        <li><a href="{{ '/findings/' | relative_url }}" class="nav-link{% if page.url == '/findings/' %} is-active{% endif %}">Findings</a></li>
+        <li><a href="{{ '/methodology/' | relative_url }}" class="nav-link{% if page.url == '/methodology/' %} is-active{% endif %}">Methodology</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}" class="nav-link{% if page.url == '/contact/' %} is-active{% endif %}">Contact</a></li>
+        <li>
+          <a href="https://github.com/{{ site.github_username }}/Security-Researches" class="nav-link nav-link--icon" rel="noopener noreferrer" target="_blank">
+            <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            <span>Repository</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <ul class="mobile-menu-list" aria-label="Mobile navigation">
+      <li><a href="{{ '/' | relative_url }}" class="mobile-link{% if page.url == '/' %} is-active{% endif %}">Home</a></li>
+      <li><a href="{{ '/about/' | relative_url }}" class="mobile-link{% if page.url == '/about/' %} is-active{% endif %}">About</a></li>
+      <li><a href="{{ '/projects/' | relative_url }}" class="mobile-link{% if page.url contains '/projects/' %} is-active{% endif %}">Projects</a></li>
+      <li><a href="{{ '/findings/' | relative_url }}" class="mobile-link{% if page.url == '/findings/' %} is-active{% endif %}">Findings</a></li>
+      <li><a href="{{ '/methodology/' | relative_url }}" class="mobile-link{% if page.url == '/methodology/' %} is-active{% endif %}">Methodology</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}" class="mobile-link{% if page.url == '/contact/' %} is-active{% endif %}">Contact</a></li>
+      <li><a href="https://github.com/{{ site.github_username }}/Security-Researches" class="mobile-link" rel="noopener noreferrer" target="_blank">GitHub Repository</a></li>
+    </ul>
+  </div>
+</header>

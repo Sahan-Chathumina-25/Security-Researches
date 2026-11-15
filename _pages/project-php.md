@@ -1,10 +1,11 @@
 ---
+description: "PHP (php-src) 8.7.0-dev audit: 3 confirmed findings (2 High, 1 Low) with runtime verification on locally built sanitizer binaries."
 layout: default
 permalink: /projects/php/
 title: PHP (php-src) 8.7.0-dev
+eyebrow: Project 01
+lede: Audit of the PHP interpreter's upstream development tree, with runtime verification on two locally built binaries.
 ---
-
-# PHP (php-src) 8.7.0-dev
 
 **Audit of the PHP interpreter's upstream development tree, with runtime
 verification on two locally built binaries.**
