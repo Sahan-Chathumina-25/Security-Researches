@@ -162,7 +162,7 @@
     });
   }
 
-  /* ---------- Background particle network (Layer B) ---------- */
+  /* ---------- Background particle network ---------- */
   var canvas = doc.getElementById('bg-particles');
   var particlesEnabled =
     canvas &&
@@ -172,21 +172,36 @@
   if (particlesEnabled) {
     var ctx = canvas.getContext('2d');
     var particles = [];
+    var bokeh = [];
     var running = false;
     var rafId = null;
     var dpr = 1;
-    var BLUE = '79, 141, 255';
-    var CYAN = '42, 212, 200';
+    var BLUE = '99, 168, 255';
+    var CYAN = '64, 205, 230';
+    var sprites = null;
+
+    var makeSprite = function (color) {
+      var s = doc.createElement('canvas');
+      s.width = s.height = 128;
+      var sc = s.getContext('2d');
+      var g = sc.createRadialGradient(64, 64, 0, 64, 64, 64);
+      g.addColorStop(0, 'rgba(' + color + ',0.5)');
+      g.addColorStop(0.35, 'rgba(' + color + ',0.16)');
+      g.addColorStop(1, 'rgba(' + color + ',0)');
+      sc.fillStyle = g;
+      sc.fillRect(0, 0, 128, 128);
+      return s;
+    };
 
     var density = function () {
-      /* Responsive density: fewer particles on small/low-power screens. */
-      var base = window.innerWidth < 640 ? 36 : 72;
-      if (window.innerWidth < 380) base = 26;
+      /* Responsive density: fewer nodes on small/low-power screens. */
+      var base = window.innerWidth < 640 ? 30 : 62;
+      if (window.innerWidth < 380) base = 22;
       return base;
     };
 
     var spawn = function (initial) {
-      var speed = 9 + Math.random() * 21;
+      var speed = 8 + Math.random() * 16;
       var angle = -Math.PI / 2 + (Math.random() - 0.5) * 0.9;
       return {
         x: Math.random() * canvas.width,
@@ -195,8 +210,21 @@
         vx: Math.cos(angle) * speed * 0.4,
         vy: Math.sin(angle) * speed,
         phase: Math.random() * Math.PI * 2,
-        alpha: 0.2 + Math.random() * 0.28,
-        tint: Math.random() > 0.4 ? BLUE : CYAN
+        alpha: 0.3 + Math.random() * 0.35,
+        tint: Math.random() > 0.35 ? CYAN : BLUE
+      };
+    };
+
+    var spawnBokeh = function (initial) {
+      return {
+        x: Math.random() * canvas.width,
+        y: initial ? Math.random() * canvas.height : canvas.height + 140,
+        r: (26 + Math.random() * 70) * dpr,
+        vx: (Math.random() - 0.5) * 4 * dpr,
+        vy: -(2 + Math.random() * 5) * dpr,
+        alpha: 0.04 + Math.random() * 0.05,
+        sprite: Math.floor(Math.random() * sprites.length),
+        phase: Math.random() * Math.PI * 2
       };
     };
 
@@ -209,6 +237,11 @@
       for (var i = 0; i < count; i++) {
         particles.push(spawn(true));
       }
+      bokeh.length = 0;
+      var bokehCount = window.innerWidth < 640 ? 5 : 9;
+      for (var b = 0; b < bokehCount; b++) {
+        bokeh.push(spawnBokeh(true));
+      }
     };
 
     var draw = function (dt) {
@@ -216,21 +249,38 @@
       var h = canvas.height;
       ctx.clearRect(0, 0, w, h);
 
-      /* connections between nearby particles (plexus lines) */
-      var i, j, p, q, dx, dy, dist2;
-      var linkDist = 118 * dpr;
+      /* soft bokeh orbs (behind everything) */
+      var b, s;
+      for (var i = 0; i < bokeh.length; i++) {
+        b = bokeh[i];
+        b.phase += dt * 0.4;
+        b.x += (b.vx + Math.sin(b.phase) * 2 * dpr) * dt;
+        b.y += b.vy * dt;
+        if (b.y < -b.r * 2 || b.x < -b.r * 2 || b.x > w + b.r * 2) {
+          bokeh[i] = spawnBokeh(false);
+          continue;
+        }
+        s = sprites[b.sprite];
+        ctx.globalAlpha = b.alpha;
+        ctx.drawImage(s, b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);
+      }
+      ctx.globalAlpha = 1;
+
+      /* constellation lines between nearby nodes */
+      var p, q, dx, dy, dist2;
+      var linkDist = 120 * dpr;
       var linkDist2 = linkDist * linkDist;
-      ctx.lineWidth = Math.max(1, dpr * 0.7);
+      ctx.lineWidth = Math.max(1, dpr * 0.6);
       for (i = 0; i < particles.length; i++) {
-        for (j = i + 1; j < particles.length; j++) {
+        for (var j = i + 1; j < particles.length; j++) {
           p = particles[i];
           q = particles[j];
           dx = p.x - q.x;
           dy = p.y - q.y;
           dist2 = dx * dx + dy * dy;
           if (dist2 < linkDist2) {
-            var la = (1 - Math.sqrt(dist2) / linkDist) * 0.16;
-            ctx.strokeStyle = 'rgba(72, 178, 226,' + la.toFixed(3) + ')';
+            var la = (1 - Math.sqrt(dist2) / linkDist) * 0.22;
+            ctx.strokeStyle = 'rgba(74, 176, 222,' + la.toFixed(3) + ')';
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
@@ -239,6 +289,7 @@
         }
       }
 
+      /* glowing nodes */
       for (i = 0; i < particles.length; i++) {
         p = particles[i];
         p.phase += dt * 0.9;
@@ -252,10 +303,10 @@
         var a = p.alpha * twinkle * dpr;
         /* soft halo */
         ctx.beginPath();
-        ctx.fillStyle = 'rgba(' + p.tint + ',' + (a * 0.35).toFixed(3) + ')';
-        ctx.arc(p.x, p.y, p.r * 3.2 * dpr, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.tint + ',' + (a * 0.3).toFixed(3) + ')';
+        ctx.arc(p.x, p.y, p.r * 3.4 * dpr, 0, Math.PI * 2);
         ctx.fill();
-        /* core */
+        /* bright core */
         ctx.beginPath();
         ctx.fillStyle = 'rgba(' + p.tint + ',' + a.toFixed(3) + ')';
         ctx.arc(p.x, p.y, p.r * dpr, 0, Math.PI * 2);
@@ -293,6 +344,7 @@
     var last = null;
     var resizeTimer = null;
 
+    sprites = [makeSprite(BLUE), makeSprite(CYAN), makeSprite('120, 150, 190')];
     resize();
     start();
 
