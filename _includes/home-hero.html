@@ -3,36 +3,48 @@
     <div class="hero-glow hero-glow--one"></div>
     <div class="hero-glow hero-glow--two"></div>
   </div>
-  <div class="container hero-inner">
-    <p class="hero-status hero-anim" style="--anim-order: 0">
-      <span class="status-dot" aria-hidden="true"></span>
-      Independent research program — 2026 audit season
-    </p>
-    <h1 class="hero-title hero-anim" style="--anim-order: 1">
-      Independent Security Research &amp; Vulnerability Analysis
-    </h1>
-    <p class="hero-lede hero-anim" style="--anim-order: 2">
-      Exploring software security through systematic source-code analysis,
-      vulnerability research, verification, and responsible disclosure.
-    </p>
-    <div class="hero-actions hero-anim" style="--anim-order: 3">
-      <a class="btn btn--primary" href="{{ '/projects/' | relative_url }}">Explore Research</a>
-      <a class="btn btn--ghost" href="{{ '/findings/' | relative_url }}">View Findings</a>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="hero-eyebrow hero-anim" style="--anim-order: 0">
+        <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+        Independent security research
+      </p>
+      <h1 class="hero-title hero-anim" style="--anim-order: 1">
+        Explore the world of <span class="hero-title-accent">software security.</span>
+      </h1>
+      <p class="hero-lede hero-anim" style="--anim-order: 2">
+        Independent security research focused on source-code auditing,
+        vulnerability analysis, technical investigation, and responsible
+        disclosure.
+      </p>
+      <div class="hero-actions hero-anim" style="--anim-order: 3">
+        <a class="btn btn--primary" href="{{ '/projects/' | relative_url }}">Explore Research</a>
+        <a class="btn btn--ghost" href="{{ '/findings/' | relative_url }}">View Findings</a>
+      </div>
+      <p class="hero-identity hero-anim" style="--anim-order: 4">
+        <span class="status-dot" aria-hidden="true"></span>
+        Source-code audits — PHP · OpenSSL · OpenSSH · xrdp · Node.js
+      </p>
     </div>
-    <dl class="hero-facts hero-anim" style="--anim-order: 4">
-      <div class="hero-fact">
-        <dt>Audits completed</dt>
-        <dd>5</dd>
-      </div>
-      <div class="hero-fact">
-        <dt>Confirmed findings</dt>
-        <dd>11</dd>
-      </div>
-      <div class="hero-fact">
-        <dt>CVE identifiers claimed</dt>
-        <dd>0</dd>
-      </div>
-    </dl>
+
+    <div class="hero-art hero-anim" style="--anim-order: 2">
+      <img
+        src="{{ '/assets/images/hero/hero-security.svg' | relative_url }}"
+        alt="Illustration of a security research terminal reporting build, verification, and disclosure results beside a green shield"
+        width="560" height="640" fetchpriority="high">
+      <p class="hero-chip hero-chip--one">
+        {% include icon.html name="shield-check" size="16" %}
+        <span><strong>11</strong> confirmed findings</span>
+      </p>
+      <p class="hero-chip hero-chip--two">
+        {% include icon.html name="terminal" size="16" %}
+        <span>Pinned-source audits</span>
+      </p>
+      <p class="hero-chip hero-chip--three">
+        {% include icon.html name="lock" size="16" %}
+        <span><strong>0</strong> CVEs claimed — vendor triage pending</span>
+      </p>
+    </div>
   </div>
   <a class="scroll-indicator hero-anim" style="--anim-order: 5" href="#research-stats" aria-label="Scroll to research overview">
     <span class="scroll-indicator-track" aria-hidden="true"><span class="scroll-indicator-dot"></span></span>

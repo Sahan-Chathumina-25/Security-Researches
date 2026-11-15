@@ -1,0 +1,137 @@
+---
+description: "Five completed source-code audits: PHP, OpenSSL, OpenSSH, xrdp, and Node.js — versions audited, confirmed findings, and verification highlights."
+layout: default
+permalink: /projects/
+title: Projects
+eyebrow: Research projects
+lede: Five completed research projects, each performed against a pinned upstream revision.
+wide: true
+---
+
+<p class="showcase-intro">
+  Five completed research projects. Each was performed against a pinned
+  upstream revision, verified dynamically where possible, and closed with a
+  prepared vendor report. Full project archives are in the
+  <a href="https://github.com/{{ site.github_username }}/Security-Researches/tree/main/projects" rel="noopener noreferrer" target="_blank">repository</a>.
+</p>
+
+<div class="projects-grid">
+
+  <article class="card project-card project-card--featured reveal">
+    <a class="project-media" href="{{ '/projects/php/' | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ '/assets/images/projects/php.svg' | relative_url }}" alt="" width="800" height="480" loading="lazy">
+    </a>
+    <div class="project-body">
+      <div class="project-card-top">
+        <span class="project-index">01 / PHP</span>
+        <span class="badge badge--verified">Audit complete</span>
+      </div>
+      <h2 class="card-title"><a href="{{ '/projects/php/' | relative_url }}">PHP (php-src)</a></h2>
+      <ul class="project-facts">
+        <li><span class="fact-label">Version</span> 8.7.0-dev master @ <code>251fe7729</code> (2026-10-24)</li>
+        <li><span class="fact-label">Status</span> audit, runtime confirmation, and disclosure report complete</li>
+        <li><span class="fact-label">Confirmed</span> 3 (V1 High, V2 High, V4 Low) + 1 partially confirmed + 1 static-only</li>
+        <li><span class="fact-label">Highlights</span> OOB read in <code>mb_ereg_replace()</code> replacement walk; RFC 3986 recomposition integer wrap returning an uninitialized 2 GiB string; uncatchable bcmath allocation fatal</li>
+      </ul>
+      <div class="card-foot">
+        <a class="card-link" href="{{ '/projects/php/' | relative_url }}">Project page {% include icon.html name="arrow-up-right" size="14" %}</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card project-card reveal">
+    <a class="project-media" href="{{ '/projects/openssl/' | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ '/assets/images/projects/openssl.svg' | relative_url }}" alt="" width="800" height="480" loading="lazy">
+    </a>
+    <div class="project-body">
+      <div class="project-card-top">
+        <span class="project-index">02 / OpenSSL</span>
+        <span class="badge badge--verified">Patch-validated</span>
+      </div>
+      <h2 class="card-title"><a href="{{ '/projects/openssl/' | relative_url }}">OpenSSL</a></h2>
+      <ul class="project-facts">
+        <li><span class="fact-label">Version</span> 4.2.0-dev master @ <code>5dbd6501e</code> (2026-11-04)</li>
+        <li><span class="fact-label">Status</span> audit, PoC verification, patch validation, full test-suite run complete</li>
+        <li><span class="fact-label">Confirmed</span> 1 (CCM IV-parameter OOB heap read, Medium, patch-validated)</li>
+        <li><span class="fact-label">Highlights</span> two independent ASan reproductions; two-line fix validated against the full official test suite; 17 false positives cleared</li>
+      </ul>
+      <div class="card-foot">
+        <a class="card-link" href="{{ '/projects/openssl/' | relative_url }}">Project page {% include icon.html name="arrow-up-right" size="14" %}</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card project-card reveal">
+    <a class="project-media" href="{{ '/projects/openssh/' | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ '/assets/images/projects/openssh.svg' | relative_url }}" alt="" width="800" height="480" loading="lazy">
+    </a>
+    <div class="project-body">
+      <div class="project-card-top">
+        <span class="project-index">03 / OpenSSH</span>
+        <span class="badge badge--accent">Disclosure prep</span>
+      </div>
+      <h2 class="card-title"><a href="{{ '/projects/openssh/' | relative_url }}">OpenSSH</a></h2>
+      <ul class="project-facts">
+        <li><span class="fact-label">Version</span> Portable <code>V_10_6_P1</code> @ <code>a8c72b842</code> (November 2026)</li>
+        <li><span class="fact-label">Status</span> phases 1–8 complete; disclosure preparation pending</li>
+        <li><span class="fact-label">Confirmed</span> 1 Low (statically proven portability defect) + 1 verified informational</li>
+        <li><span class="fact-label">Highlights</span> defects found in the 10.6-new agent socket manager; upstream regression suite 489/489; defects verified under Valgrind and MemorySanitizer</li>
+      </ul>
+      <div class="card-foot">
+        <a class="card-link" href="{{ '/projects/openssh/' | relative_url }}">Project page {% include icon.html name="arrow-up-right" size="14" %}</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card project-card reveal">
+    <a class="project-media" href="{{ '/projects/xrdp/' | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ '/assets/images/projects/xrdp.svg' | relative_url }}" alt="" width="800" height="480" loading="lazy">
+    </a>
+    <div class="project-body">
+      <div class="project-card-top">
+        <span class="project-index">04 / xrdp</span>
+        <span class="badge badge--verified">Full 12-phase audit</span>
+      </div>
+      <h2 class="card-title"><a href="{{ '/projects/xrdp/' | relative_url }}">xrdp</a></h2>
+      <ul class="project-facts">
+        <li><span class="fact-label">Version</span> v0.10.6.1 @ <code>80c52879f</code></li>
+        <li><span class="fact-label">Status</span> full 12-phase audit; 213/213 unit tests before and after every patch</li>
+        <li><span class="fact-label">Confirmed</span> 7 — two correspond to already-fixed upstream CVEs (CVE-2026-79928/-79936/-81169 family), five are new and still present upstream at audit time</li>
+        <li><span class="fact-label">Highlights</span> validated research hardening patch (4 files); impact honestly bounded to per-connection/per-session scope</li>
+      </ul>
+      <div class="card-foot">
+        <a class="card-link" href="{{ '/projects/xrdp/' | relative_url }}">Project page {% include icon.html name="arrow-up-right" size="14" %}</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card project-card reveal">
+    <a class="project-media" href="{{ '/projects/nodejs/' | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ '/assets/images/projects/nodejs.svg' | relative_url }}" alt="" width="800" height="480" loading="lazy">
+    </a>
+    <div class="project-body">
+      <div class="project-card-top">
+        <span class="project-index">05 / Node.js</span>
+        <span class="badge badge--accent">Severity triage pending</span>
+      </div>
+      <h2 class="card-title"><a href="{{ '/projects/nodejs/' | relative_url }}">Node.js</a></h2>
+      <ul class="project-facts">
+        <li><span class="fact-label">Version</span> HEAD <code>67e45e4a</code> (v28.0.0-pre), comparison on v24.19.0</li>
+        <li><span class="fact-label">Status</span> audit, mechanism reproduction on HEAD, severity assessment</li>
+        <li><span class="fact-label">Confirmed</span> 1 (High — https Agent drops per-request <code>checkServerIdentity</code> overrides on session reuse when the agent carries a checker; residual of the CVE-2026-48934/58040 fix cluster)</li>
+        <li><span class="fact-label">Highlights</span> reproduced on a freshly built HEAD binary with a control experiment; honest dedup analysis against the public CVE chain</li>
+      </ul>
+      <div class="card-foot">
+        <a class="card-link" href="{{ '/projects/nodejs/' | relative_url }}">Project page {% include icon.html name="arrow-up-right" size="14" %}</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<p class="showcase-note">
+  Statistics and statuses are stated exactly as recorded in each project's
+  research documentation. See the
+  <a href="{{ '/findings/' | relative_url }}">findings overview</a> for the
+  categorization rules.
+</p>

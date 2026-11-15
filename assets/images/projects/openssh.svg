@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-label="Abstract terminal and key illustration for the OpenSSH protocol audit">
+  <defs>
+    <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151e18"/><stop offset="1" stop-color="#0d120f"/>
+    </linearGradient>
+    <radialGradient id="sglow" cx="0.3" cy="0.15" r="1">
+      <stop offset="0" stop-color="#b6f451" stop-opacity="0.12"/><stop offset="1" stop-color="#b6f451" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="480" rx="18" fill="url(#sg)"/>
+  <rect width="800" height="480" rx="18" fill="url(#sglow)"/>
+  <g stroke="#263329" stroke-width="1" opacity="0.55">
+    <path d="M0 96h800M0 192h800M0 288h800M0 384h800"/>
+    <path d="M100 0v480M200 0v480M300 0v480M400 0v480M500 0v480M600 0v480M700 0v480"/>
+  </g>
+  <!-- terminal -->
+  <g>
+    <rect x="120" y="150" width="330" height="200" rx="14" fill="#0a0f0b" stroke="#3a4a3e" stroke-width="2"/>
+    <rect x="120" y="150" width="330" height="34" rx="14" fill="#111813"/>
+    <circle cx="142" cy="167" r="4" fill="#263329"/><circle cx="158" cy="167" r="4" fill="#3a4a3e"/><circle cx="174" cy="167" r="4" fill="#8ddc36"/>
+    <g font-family="ui-monospace, Menlo, monospace" font-size="15">
+      <text x="142" y="220" fill="#7e8a80">$</text><text x="160" y="220" fill="#f5f7f2">ssh-agent --audit</text>
+      <text x="142" y="252" fill="#8ddc36">handshake: kex … ok</text>
+      <text x="142" y="284" fill="#8ddc36">packet framing: aead … ok</text>
+      <text x="142" y="316" fill="#f5f7f2">misc-agent.c: 2 findings</text>
+    </g>
+  </g>
+  <!-- key -->
+  <g fill="none" stroke="#b6f451" stroke-width="6" stroke-linecap="round" transform="translate(560 230) rotate(-18)">
+    <circle cx="0" cy="0" r="34"/>
+    <circle cx="0" cy="0" r="12"/>
+    <path d="M34 0h96M96 0v20M126 0v26M156 0v18"/>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="18" fill="#7e8a80">
+    <text x="80" y="72">03 / OpenSSH — protocol · agents</text>
+  </g>
+  <rect x="80" y="420" width="120" height="6" rx="3" fill="#8ddc36" opacity="0.5"/>
+</svg>

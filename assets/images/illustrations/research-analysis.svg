@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="Abstract illustration of source-code analysis with magnifier and research notes">
+  <defs>
+    <linearGradient id="ag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151e18"/><stop offset="1" stop-color="#0d120f"/>
+    </linearGradient>
+    <radialGradient id="aglow" cx="0.2" cy="0.1" r="1">
+      <stop offset="0" stop-color="#b6f451" stop-opacity="0.1"/><stop offset="1" stop-color="#b6f451" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="420" rx="18" fill="url(#ag)"/>
+  <rect width="800" height="420" rx="18" fill="url(#aglow)"/>
+  <g stroke="#263329" stroke-width="1" opacity="0.5">
+    <path d="M0 84h800M0 168h800M0 252h800M0 336h800"/>
+    <path d="M114 0v420M228 0v420M342 0v420M456 0v420M570 0v420M684 0v420"/>
+  </g>
+  <!-- source tree -->
+  <g stroke="#3a4a3e" stroke-width="2" fill="none">
+    <path d="M140 90v220M140 120h70M140 170h50M140 220h70M140 270h50"/>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#a5b0a7">
+    <text x="222" y="124">src/</text><text x="202" y="174">lib/</text>
+    <text x="222" y="224">crypto/</text><text x="202" y="274">tls/</text>
+  </g>
+  <!-- magnifier over code -->
+  <g>
+    <rect x="330" y="120" width="180" height="130" rx="10" fill="#0a0f0b" stroke="#3a4a3e" stroke-width="2"/>
+    <g stroke="#8ddc36" stroke-width="3" stroke-linecap="round" opacity="0.8">
+      <path d="M348 148h90M348 172h60M348 196h76M348 220h48"/>
+    </g>
+    <circle cx="452" cy="196" r="44" fill="rgba(182,244,81,0.06)" stroke="#b6f451" stroke-width="4"/>
+    <path d="M483 227l40 40" stroke="#b6f451" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <!-- notes -->
+  <g>
+    <rect x="580" y="110" width="150" height="180" rx="10" fill="#111813" stroke="#3a4a3e" stroke-width="2"/>
+    <rect x="598" y="134" width="70" height="8" rx="4" fill="#b6f451" opacity="0.7"/>
+    <g stroke="#3a4a3e" stroke-width="3" stroke-linecap="round">
+      <path d="M598 168h114M598 192h92M598 216h104M598 240h80"/>
+    </g>
+    <circle cx="655" cy="266" r="10" fill="none" stroke="#8ddc36" stroke-width="3"/>
+    <path d="m651 266 3 3 6-7" stroke="#8ddc36" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- connection -->
+  <path d="M282 250c30 40 60 40 96 10" stroke="#263329" stroke-width="2" fill="none" stroke-dasharray="4 6"/>
+  <path d="M522 250c30 40 50 44 66 20" stroke="#263329" stroke-width="2" fill="none" stroke-dasharray="4 6"/>
+</svg>

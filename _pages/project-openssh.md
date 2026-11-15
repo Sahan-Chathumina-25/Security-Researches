@@ -1,9 +1,10 @@
 ---
 description: "OpenSSH Portable V_10_6_P1 audit: 1 statically proven Low finding and 1 verified informational observation in the 10.6 agent socket manager."
-layout: default
+layout: project
 permalink: /projects/openssh/
 title: OpenSSH V_10_6_P1
 eyebrow: Project 03
+short_name: OpenSSH
 lede: Comprehensive, evidence-driven audit of OpenSSH Portable across review, static analysis, and dynamic verification.
 ---
 

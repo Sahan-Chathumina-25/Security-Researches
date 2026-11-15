@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 640" role="img" aria-label="Abstract illustration of a security terminal with shield and network nodes">
+  <defs>
+    <linearGradient id="hpanel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151e18"/>
+      <stop offset="1" stop-color="#0d120f"/>
+    </linearGradient>
+    <linearGradient id="hline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b6f451"/>
+      <stop offset="1" stop-color="#8ddc36"/>
+    </linearGradient>
+    <radialGradient id="hglow" cx="0.7" cy="0.15" r="0.9">
+      <stop offset="0" stop-color="#b6f451" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#b6f451" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="560" height="640" rx="20" fill="url(#hpanel)"/>
+  <rect width="560" height="640" rx="20" fill="url(#hglow)"/>
+
+  <!-- faint grid -->
+  <g stroke="#263329" stroke-width="1" opacity="0.5">
+    <path d="M0 80h560M0 160h560M0 240h560M0 320h560M0 400h560M0 480h560M0 560h560"/>
+    <path d="M80 0v640M160 0v640M240 0v640M320 0v640M400 0v640M480 0v640"/>
+  </g>
+
+  <!-- network nodes top -->
+  <g stroke="#8ddc36" stroke-width="1.4" opacity="0.75" fill="none">
+    <path d="M100 90 200 60 330 84 440 56"/>
+    <path d="M200 60 260 110 330 84M260 110 380 128 440 56"/>
+  </g>
+  <g fill="#b6f451">
+    <circle cx="100" cy="90" r="4"/><circle cx="200" cy="60" r="5"/>
+    <circle cx="330" cy="84" r="4"/><circle cx="440" cy="56" r="5"/>
+    <circle cx="260" cy="110" r="3.5"/><circle cx="380" cy="128" r="3.5"/>
+  </g>
+
+  <!-- terminal window -->
+  <g>
+    <rect x="56" y="180" width="360" height="270" rx="14" fill="#0a0f0b" stroke="#3a4a3e" stroke-width="1.5"/>
+    <rect x="56" y="180" width="360" height="40" rx="14" fill="#111813"/>
+    <circle cx="82" cy="200" r="5" fill="#263329"/>
+    <circle cx="102" cy="200" r="5" fill="#3a4a3e"/>
+    <circle cx="122" cy="200" r="5" fill="#8ddc36"/>
+    <text x="300" y="205" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="#7e8a80" text-anchor="middle">audit — pinned-source</text>
+    <!-- code lines -->
+    <g font-family="ui-monospace, Menlo, monospace" font-size="14">
+      <text x="80" y="252" fill="#7e8a80">$</text>
+      <text x="102" y="252" fill="#f5f7f2">./verify --target php-src</text>
+      <text x="80" y="284" fill="#8ddc36">[✓] build: asan, ubsan … ok</text>
+      <text x="80" y="312" fill="#8ddc36">[✓] harness: replay … ok</text>
+      <text x="80" y="340" fill="#f5f7f2">[!] candidate: oob-read</text>
+      <rect x="80" y="352" width="292" height="16" rx="4" fill="#151e18"/>
+      <rect x="80" y="352" width="212" height="16" rx="4" fill="#b6f451" opacity="0.25"/>
+      <text x="80" y="402" fill="#7e8a80">[✓] patched tree: tests</text>
+      <text x="292" y="402" fill="#b6f451">489/489 PASS</text>
+      <rect x="80" y="414" width="14" height="14" fill="#b6f451"/>
+      <text x="102" y="425" fill="#f5f7f2">awaiting disclosure…</text>
+    </g>
+    <rect x="298" y="414" width="10" height="14" fill="#b6f451" opacity="0.8"/>
+  </g>
+
+  <!-- shield -->
+  <g>
+    <path d="M448 200c36 12 60 16 60 44v96c0 66-34 104-72 122-38-18-72-56-72-122v-96c0-28 24-32 84-44z" fill="#111813" stroke="#b6f451" stroke-width="3"/>
+    <path d="M418 296l24 24 44-48" stroke="#b6f451" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M388 244v92" stroke="#263329" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- bottom circuit -->
+  <g stroke="#3a4a3e" stroke-width="1.5" fill="none" opacity="0.9">
+    <path d="M80 520h120l24-24h96M360 520h120M140 560h180l24 24h120"/>
+  </g>
+  <g fill="#8ddc36">
+    <circle cx="80" cy="520" r="4"/><circle cx="360" cy="520" r="4"/>
+    <circle cx="140" cy="560" r="4"/><circle cx="464" cy="584" r="4"/>
+  </g>
+  <rect x="200" y="488" width="90" height="8" rx="4" fill="url(#hline)" opacity="0.6"/>
+  <rect x="120" y="600" width="140" height="8" rx="4" fill="url(#hline)" opacity="0.35"/>
+</svg>

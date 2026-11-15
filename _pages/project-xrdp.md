@@ -1,9 +1,10 @@
 ---
 description: "xrdp v0.10.6.1 full 12-phase audit: 7 confirmed findings (2 corresponding to already-fixed upstream CVEs) with validated fixes."
-layout: default
+layout: project
 permalink: /projects/xrdp/
 title: xrdp v0.10.6.1
 eyebrow: Project 04
+short_name: xrdp
 lede: Full 12-phase defensive source audit of the xrdp RDP server, producing seven validation-backed findings.
 ---
 

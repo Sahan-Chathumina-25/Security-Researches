@@ -176,8 +176,8 @@
     var running = false;
     var rafId = null;
     var dpr = 1;
-    var BLUE = '99, 168, 255';
-    var CYAN = '64, 205, 230';
+    var BLUE = '182, 244, 81';
+    var CYAN = '141, 220, 54';
     var sprites = null;
 
     var makeSprite = function (color) {
@@ -280,7 +280,7 @@
           dist2 = dx * dx + dy * dy;
           if (dist2 < linkDist2) {
             var la = (1 - Math.sqrt(dist2) / linkDist) * 0.22;
-            ctx.strokeStyle = 'rgba(74, 176, 222,' + la.toFixed(3) + ')';
+            ctx.strokeStyle = 'rgba(150, 214, 74,' + la.toFixed(3) + ')';
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
@@ -344,7 +344,7 @@
     var last = null;
     var resizeTimer = null;
 
-    sprites = [makeSprite(BLUE), makeSprite(CYAN), makeSprite('120, 150, 190')];
+    sprites = [makeSprite(BLUE), makeSprite(CYAN), makeSprite('165, 200, 140')];
     resize();
     start();
 

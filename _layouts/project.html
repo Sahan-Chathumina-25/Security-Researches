@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="container">
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% assign self_url = page.url %}
+  {% assign related = '' | split: '' %}
+  {% for p in site.html_pages %}
+    {% if p.url != '/projects/' and p.url != self_url and p.url contains '/projects/' %}
+      {% assign related = related | push: p %}
+    {% endif %}
+  {% endfor %}
+
+  <aside class="related-projects reveal">
+    <p class="related-label">Related research</p>
+    <nav class="related-grid" aria-label="Related research projects">
+      {% for p in related limit: 4 %}
+        <a class="related-card" href="{{ p.url | relative_url }}">
+          <span class="related-card-title">{{ p.short_name | default: p.title }}</span>
+          <span class="related-card-cta">View {% include icon.html name="arrow-up-right" size="13" %}</span>
+        </a>
+      {% endfor %}
+    </nav>
+  </aside>
+</div>

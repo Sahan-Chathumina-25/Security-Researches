@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080c16">
+  <meta name="theme-color" content="#080b09">
   {% seo %}
   <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
   {% assign asset_version = site.time | date: '%Y%m%d%H%M%S' %}
@@ -26,6 +26,10 @@
     {% endunless %}
     {% if page.url == '/' %}
       {{ content }}
+    {% elsif page.wide %}
+      <div class="container">
+        {{ content }}
+      </div>
     {% else %}
       <div class="container">
         <div class="prose">

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-label="Abstract padlock and circuit illustration for the OpenSSL crypto-layer audit">
+  <defs>
+    <linearGradient id="og" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151e18"/><stop offset="1" stop-color="#0d120f"/>
+    </linearGradient>
+    <radialGradient id="oglow" cx="0.75" cy="0.12" r="1">
+      <stop offset="0" stop-color="#b6f451" stop-opacity="0.12"/><stop offset="1" stop-color="#b6f451" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="480" rx="18" fill="url(#og)"/>
+  <rect width="800" height="480" rx="18" fill="url(#oglow)"/>
+  <g stroke="#263329" stroke-width="1" opacity="0.55">
+    <path d="M0 96h800M0 192h800M0 288h800M0 384h800"/>
+    <path d="M100 0v480M200 0v480M300 0v480M400 0v480M500 0v480M600 0v480M700 0v480"/>
+  </g>
+  <!-- padlock -->
+  <g>
+    <rect x="330" y="220" width="140" height="112" rx="16" fill="#111813" stroke="#b6f451" stroke-width="4"/>
+    <path d="M358 220v-34a42 42 0 0 1 84 0v34" fill="none" stroke="#8ddc36" stroke-width="5"/>
+    <circle cx="400" cy="270" r="12" fill="#b6f451"/>
+    <path d="M400 282v22" stroke="#b6f451" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- circuit traces -->
+  <g stroke="#3a4a3e" stroke-width="2" fill="none">
+    <path d="M220 260h90M220 292h90M690 260h-90M690 292h-90"/>
+    <path d="M220 260l-30-24M220 292l-30 24M690 260l30-24M690 292l30 24"/>
+  </g>
+  <g fill="#8ddc36">
+    <circle cx="220" cy="260" r="5"/><circle cx="220" cy="292" r="5"/>
+    <circle cx="580" cy="260" r="5"/><circle cx="580" cy="292" r="5"/>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#7e8a80">
+    <text x="80" y="72">02 / OpenSSL — TLS · ASN.1 · QUIC</text>
+  </g>
+  <rect x="620" y="420" width="120" height="6" rx="3" fill="#8ddc36" opacity="0.5"/>
+</svg>
