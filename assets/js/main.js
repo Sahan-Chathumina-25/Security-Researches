@@ -195,7 +195,7 @@
         vx: Math.cos(angle) * speed * 0.4,
         vy: Math.sin(angle) * speed,
         phase: Math.random() * Math.PI * 2,
-        alpha: 0.25 + Math.random() * 0.3,
+        alpha: 0.2 + Math.random() * 0.28,
         tint: Math.random() > 0.4 ? BLUE : CYAN
       };
     };
@@ -215,8 +215,32 @@
       var w = canvas.width;
       var h = canvas.height;
       ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
+
+      /* connections between nearby particles (plexus lines) */
+      var i, j, p, q, dx, dy, dist2;
+      var linkDist = 118 * dpr;
+      var linkDist2 = linkDist * linkDist;
+      ctx.lineWidth = Math.max(1, dpr * 0.7);
+      for (i = 0; i < particles.length; i++) {
+        for (j = i + 1; j < particles.length; j++) {
+          p = particles[i];
+          q = particles[j];
+          dx = p.x - q.x;
+          dy = p.y - q.y;
+          dist2 = dx * dx + dy * dy;
+          if (dist2 < linkDist2) {
+            var la = (1 - Math.sqrt(dist2) / linkDist) * 0.16;
+            ctx.strokeStyle = 'rgba(72, 178, 226,' + la.toFixed(3) + ')';
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      for (i = 0; i < particles.length; i++) {
+        p = particles[i];
         p.phase += dt * 0.9;
         p.x += (p.vx + Math.sin(p.phase) * 3) * dt;
         p.y += p.vy * dt;

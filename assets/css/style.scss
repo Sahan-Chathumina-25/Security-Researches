@@ -9,11 +9,11 @@
 /* ---------- 1. Design tokens ---------- */
 :root {
   /* Surfaces */
-  --color-bg: #0b1020;
-  --color-bg-deep: #080c18;
-  --color-surface: #10172a;
-  --color-surface-2: #141d33;
-  --color-surface-3: #182342;
+  --color-bg: #080c16;
+  --color-bg-deep: #060a12;
+  --color-surface: #0e1526;
+  --color-surface-2: #121a2e;
+  --color-surface-3: #16203a;
   --color-border: rgba(146, 168, 209, 0.14);
   --color-border-strong: rgba(146, 168, 209, 0.28);
 
@@ -49,7 +49,7 @@
   --radius: 10px;
   --radius-lg: 16px;
   --container: 1080px;
-  --section-pad: clamp(3.5rem, 8vw, 6rem);
+  --section-pad: clamp(2.5rem, 6vw, 4rem);
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -82,8 +82,8 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(1100px 520px at 85% -120px, rgba(79, 141, 255, 0.07), transparent 70%),
-    radial-gradient(900px 480px at -10% 30%, rgba(42, 212, 200, 0.05), transparent 70%);
+    radial-gradient(1100px 520px at 85% -120px, rgba(79, 141, 255, 0.05), transparent 70%),
+    radial-gradient(900px 480px at -10% 30%, rgba(42, 212, 200, 0.035), transparent 70%);
   background-repeat: no-repeat;
   color: var(--color-text);
   font-family: var(--font-sans);
@@ -146,7 +146,7 @@ svg {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 16, 32, 0.82);
+  background: rgba(8, 12, 22, 0.85);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -156,7 +156,7 @@ svg {
 .site-header.is-scrolled,
 .site-header:has(.mobile-menu.is-open) {
   border-bottom-color: var(--color-border);
-  background: rgba(9, 13, 27, 0.94);
+  background: rgba(6, 10, 18, 0.95);
 }
 
 .header-inner {
@@ -290,7 +290,7 @@ svg {
   display: none;
   overflow: hidden;
   border-top: 1px solid var(--color-border);
-  background: rgba(9, 13, 27, 0.97);
+  background: rgba(6, 10, 18, 0.97);
 }
 
 .mobile-menu[hidden] {
@@ -399,8 +399,8 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: min(92vh, 780px);
-  padding: clamp(4rem, 9vw, 6.5rem) 0 4.5rem;
+  min-height: min(80vh, 640px);
+  padding: clamp(3rem, 6vw, 4.5rem) 0 3.5rem;
   overflow: hidden;
   isolation: isolate;
 }
@@ -438,7 +438,7 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.4rem;
+  gap: 1.15rem;
   max-width: 780px;
 }
 
@@ -450,7 +450,7 @@ svg {
   padding: 0.4rem 0.9rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  background: rgba(16, 23, 42, 0.6);
+  background: rgba(10, 15, 28, 0.6);
   color: var(--color-text-muted);
   font-size: 0.8rem;
   letter-spacing: 0.04em;
@@ -493,11 +493,11 @@ svg {
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem;
-  margin: 1.2rem 0 0;
-  padding: 1.1rem 1.5rem;
+  margin: 1rem 0 0;
+  padding: 1rem 1.35rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: rgba(16, 23, 42, 0.5);
+  background: rgba(10, 15, 28, 0.5);
 }
 
 .hero-fact dt {
@@ -570,7 +570,7 @@ svg {
 
 .section-head {
   max-width: 640px;
-  margin-bottom: clamp(2rem, 5vw, 3rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
 }
 
 .section-head--center {
@@ -616,11 +616,11 @@ svg {
 }
 
 .page-header {
-  padding: clamp(2.75rem, 7vw, 4.25rem) 0 clamp(1.75rem, 4vw, 2.5rem);
+  padding: clamp(2.25rem, 6vw, 3.25rem) 0 clamp(1.5rem, 3.5vw, 2rem);
   border-bottom: 1px solid var(--color-border);
   background:
-    radial-gradient(720px 260px at 12% 0%, rgba(79, 141, 255, 0.08), transparent 70%);
-  margin-bottom: clamp(2rem, 5vw, 3rem);
+    radial-gradient(720px 260px at 12% 0%, rgba(79, 141, 255, 0.07), transparent 70%);
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
 }
 
 .breadcrumb-list {
@@ -659,7 +659,7 @@ svg {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 1.6rem;
+  padding: 1.4rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -806,7 +806,7 @@ svg {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .stat-card {
@@ -853,7 +853,7 @@ svg {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .project-card {
@@ -906,7 +906,7 @@ svg {
 .timeline {
   position: relative;
   display: grid;
-  gap: 1.1rem;
+  gap: 0.9rem;
   max-width: 760px;
 }
 
@@ -977,7 +977,7 @@ svg {
 .timeline--preview {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 0.85rem;
   max-width: none;
 }
 
@@ -1022,7 +1022,7 @@ svg {
 .findings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .finding-card .finding-count {
@@ -1049,7 +1049,7 @@ svg {
 }
 
 .prose h2 {
-  margin: 2.6rem 0 0.9rem;
+  margin: 2.1rem 0 0.8rem;
   padding-top: 0.35rem;
   font-size: 1.42rem;
   font-weight: 700;
@@ -1069,7 +1069,7 @@ svg {
 }
 
 .prose h3 {
-  margin: 2rem 0 0.6rem;
+  margin: 1.6rem 0 0.55rem;
   font-size: 1.12rem;
   font-weight: 700;
   color: var(--color-text-strong);
@@ -1221,7 +1221,7 @@ svg {
 
 /* ---------- 13. CTA band ---------- */
 .cta-band {
-  padding: 1.9rem 2rem;
+  padding: 1.5rem 1.75rem;
   background:
     radial-gradient(560px 200px at 90% 0%, rgba(42, 212, 200, 0.1), transparent 70%),
     radial-gradient(560px 220px at 5% 100%, rgba(79, 141, 255, 0.12), transparent 70%),
@@ -1253,16 +1253,16 @@ svg {
 
 /* ---------- 14. Footer ---------- */
 .site-footer {
-  margin-top: clamp(2.5rem, 6vw, 4rem);
-  padding: clamp(2.5rem, 6vw, 3.5rem) 0 2.2rem;
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+  padding: clamp(2rem, 5vw, 2.75rem) 0 1.75rem;
   border-top: 1px solid var(--color-border);
-  background: linear-gradient(180deg, transparent, rgba(8, 12, 24, 0.7));
+  background: linear-gradient(180deg, transparent, rgba(6, 10, 18, 0.7));
 }
 
 .footer-inner {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .footer-identity {
@@ -1498,7 +1498,7 @@ svg {
   width: 64vmax;
   height: 64vmax;
   border-radius: 50%;
-  opacity: 0.9;
+  opacity: 0.65;
   will-change: transform;
 }
 
@@ -1507,8 +1507,8 @@ svg {
   left: -10vmax;
   background: radial-gradient(
     circle,
-    rgba(79, 141, 255, 0.32) 0%,
-    rgba(79, 141, 255, 0.13) 36%,
+    rgba(79, 141, 255, 0.26) 0%,
+    rgba(79, 141, 255, 0.1) 36%,
     transparent 66%
   );
   animation: aurora-drift-a 36s ease-in-out infinite alternate;
@@ -1519,8 +1519,8 @@ svg {
   top: 6vmax;
   background: radial-gradient(
     circle,
-    rgba(42, 212, 200, 0.24) 0%,
-    rgba(42, 212, 200, 0.09) 36%,
+    rgba(42, 212, 200, 0.18) 0%,
+    rgba(42, 212, 200, 0.07) 36%,
     transparent 66%
   );
   animation: aurora-drift-b 46s ease-in-out infinite alternate;
@@ -1533,8 +1533,8 @@ svg {
   height: 54vmax;
   background: radial-gradient(
     circle,
-    rgba(139, 92, 246, 0.18) 0%,
-    rgba(139, 92, 246, 0.07) 36%,
+    rgba(139, 92, 246, 0.14) 0%,
+    rgba(139, 92, 246, 0.05) 36%,
     transparent 66%
   );
   animation: aurora-drift-c 56s ease-in-out infinite alternate;
@@ -1574,48 +1574,6 @@ svg {
   height: 100%;
 }
 
-/* Layer C — technical grid with soft glow pockets */
-.bg-grid {
-  background-image:
-    radial-gradient(460px 460px at 76% 20%, rgba(79, 141, 255, 0.13), transparent 70%),
-    radial-gradient(560px 560px at 14% 74%, rgba(42, 212, 200, 0.1), transparent 70%),
-    linear-gradient(rgba(146, 168, 209, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(146, 168, 209, 0.1) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 45%, transparent 92%);
-  mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 45%, transparent 92%);
-}
-
-/* Slow-moving light sweeping across the grid */
-.bg-grid::after {
-  content: "";
-  position: absolute;
-  top: -30%;
-  left: -30%;
-  width: 44vmax;
-  height: 44vmax;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(79, 141, 255, 0.12) 0%,
-    rgba(79, 141, 255, 0.04) 40%,
-    transparent 66%
-  );
-  animation: grid-sweep 60s linear infinite;
-}
-
-@keyframes grid-sweep {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(170vw, 70vh, 0);
-  }
-  100% {
-    transform: translate3d(340vw, 0, 0);
-  }
-}
-
 /* Readability vignette over the atmosphere — kept light so aurora stays visible */
 .bg-vignette {
   background: radial-gradient(130% 100% at 50% 30%, transparent 62%, rgba(8, 12, 24, 0.42) 100%);
@@ -1626,21 +1584,12 @@ svg {
   .aurora {
     opacity: 0.78;
   }
-
-  .bg-grid::after {
-    display: none;
-  }
 }
 
 /* ---------- 19. Reduced motion (background layers) ---------- */
 @media (prefers-reduced-motion: reduce) {
   .aurora {
     animation: none;
-  }
-
-  .bg-grid::after {
-    animation: none;
-    transform: translate3d(0, 0, 0);
   }
 }
 
