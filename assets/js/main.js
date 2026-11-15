@@ -137,31 +137,6 @@
     }
   }
 
-  /* ---------- Homepage section scroll-spy ---------- */
-  var spySections = doc.querySelectorAll('[data-nav-section]');
-  var navLinks = doc.querySelectorAll('.nav-link[href]');
-  if (spySections.length && navLinks.length && 'IntersectionObserver' in window) {
-    var linkFor = {};
-    navLinks.forEach(function (link) {
-      linkFor[link.getAttribute('href')] = link;
-    });
-    var spy = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var href = entry.target.getAttribute('data-nav-section');
-          navLinks.forEach(function (link) {
-            link.classList.toggle('is-active', link === linkFor[href]);
-          });
-        });
-      },
-      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
-    );
-    spySections.forEach(function (section) {
-      spy.observe(section);
-    });
-  }
-
   /* ---------- Background particle network ---------- */
   var canvas = doc.getElementById('bg-particles');
   var particlesEnabled =
