@@ -4,8 +4,8 @@ description: >-
   Independent security research and open-source software auditing.
   Source-code audits of PHP, OpenSSL, OpenSSH, xrdp, and Node.js with
   verified, responsibly disclosed findings.
-url: "https://sahan-chathumina-25.github.io"
-baseurl: "/Security-Researches"
+url: "https://research.sahancs.is-a.dev"
+baseurl: ""
 lang: en
 author: Sahan Chathumina
 github_username: Sahan-Chathumina-25
