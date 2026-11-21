@@ -39,7 +39,10 @@ in the repository.
 XRDP-003..007 are five findings; with XRDP-001/002 the xrdp total is seven
 confirmed. Severity values are researcher proposals subject to vendor
 triage; no CVSS score here is authoritative. One CVE has been assigned so
-far: CVE-2026-129438 for PHP-V2 (Moderate, CVSS 6.3, fixed in PHP 8.5.13).
+far: CVE-2026-129438 for PHP-V2 (Moderate, CVSS 6.3, fixed in PHP 8.5.13);
+a duplicate advisory
+[GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6)
+exists for the same issue.
 
 ## Potential findings (5)
 

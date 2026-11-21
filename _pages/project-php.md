@@ -48,8 +48,10 @@ PHP-V2 was submitted through the PHP security advisory process and
 published on 2026-11-19 as
 [GHSA-mg3p-mxj9-g2mm](https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm#event-1404536)
 — **CVE-2026-129438**, Moderate (CVSS 6.3), CWE-190/CWE-252, affecting
-PHP ≥ 8.5.0 and fixed in 8.5.13. The remaining findings were unpatched at
-the audited commit; their complete report set (`REPORT-main.md` plus
+PHP ≥ 8.5.0 and fixed in 8.5.13. A duplicate advisory
+[GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6)
+was also filed for the same issue. The remaining findings were unpatched
+at the audited commit; their complete report set (`REPORT-main.md` plus
 per-finding sub-reports) is prepared for the PHP security advisory
 process (GHSA → CVE via the PHP CNA).
 
