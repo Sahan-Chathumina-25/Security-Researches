@@ -29,7 +29,7 @@ wide: true
       <h2 class="card-title"><a href="{{ '/projects/php/' | relative_url }}">PHP (php-src)</a></h2>
       <ul class="project-facts">
         <li><span class="fact-label">Version</span> 8.7.0-dev master @ <code>251fe7729</code> (2026-10-24)</li>
-        <li><span class="fact-label">Status</span> audit, runtime confirmation, and disclosure report complete</li>
+        <li><span class="fact-label">Status</span> audit and runtime confirmation complete; PHP-V2 disclosed — <a href="https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm#event-1404536" rel="noopener noreferrer" target="_blank">CVE-2026-129438</a> assigned (Moderate, CVSS 6.3, fixed in 8.5.13)</li>
         <li><span class="fact-label">Confirmed</span> 3 (V1 High, V2 High, V4 Low) + 1 partially confirmed + 1 static-only</li>
         <li><span class="fact-label">Highlights</span> OOB read in <code>mb_ereg_replace()</code> replacement walk; RFC 3986 recomposition integer wrap returning an uninitialized 2 GiB string; uncatchable bcmath allocation fatal</li>
       </ul>

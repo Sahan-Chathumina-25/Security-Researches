@@ -8,10 +8,13 @@ lede: All security-relevant results, categorized by verification status as recor
 ---
 
 All security-relevant results, categorized by verification status as
-recorded in the research archive. Because no finding has been submitted to
-a vendor yet, public reports are redacted: root cause, impact scope, and
-verification methodology are described; PoC code, trigger inputs, and
-reproduction steps for unpatched issues are withheld. See the
+recorded in the research archive. One finding (PHP-V2) has been disclosed
+and published as
+[CVE-2026-129438](https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm#event-1404536);
+for the remaining unpatched findings, public reports are redacted: root
+cause, impact scope, and verification methodology are described; PoC code,
+trigger inputs, and reproduction steps for unpatched issues are withheld.
+See the
 [disclosure status](https://github.com/{{ site.github_username }}/Security-Researches/blob/main/findings/DISCLOSURE-STATUS.md)
 in the repository.
 
@@ -20,7 +23,7 @@ in the repository.
 | ID | Project | Finding | Class | Proposed severity |
 | --- | --- | --- | --- | --- |
 | PHP-V1 | PHP | OOB read in `mb_ereg_replace()` replacement walk | OOB read / info leak | High (7.5) |
-| PHP-V2 | PHP | RFC 3986 recomposition int wrap → uninitialized `INT_MAX` string | Integer overflow / info leak | High (5.9–7.4) |
+| PHP-V2 | PHP | RFC 3986 recomposition int wrap → uninitialized `INT_MAX` string | Integer overflow / info leak | High (5.9–7.4) proposed — **CVE-2026-129438** (Moderate, 6.3) |
 | PHP-V4 | PHP | `bcround()` `PHP_INT_MIN` → uncatchable ~9.2 EB alloc | Availability | Low (3.7) |
 | SSL-CCM-1 | OpenSSL | CCM IV parameter getters OOB heap read | OOB heap read | Medium (~5.9) |
 | OSSH-002 | OpenSSH | `fstatat()` fallback macro stats wrong variable | Portability correctness | Low |
@@ -35,7 +38,8 @@ in the repository.
 
 XRDP-003..007 are five findings; with XRDP-001/002 the xrdp total is seven
 confirmed. Severity values are researcher proposals subject to vendor
-triage; no CVSS score here is authoritative and no CVE is claimed.
+triage; no CVSS score here is authoritative. One CVE has been assigned so
+far: CVE-2026-129438 for PHP-V2 (Moderate, CVSS 6.3, fixed in PHP 8.5.13).
 
 ## Potential findings (5)
 

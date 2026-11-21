@@ -1029,6 +1029,23 @@ svg {
   color: var(--color-text);
 }
 
+.project-facts a,
+.stat-note a,
+.section-lede a,
+.hero-chip a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project-facts a:hover,
+.stat-note a:hover,
+.section-lede a:hover,
+.hero-chip a:hover {
+  color: var(--color-accent-2);
+  text-decoration: underline;
+}
+
 .showcase-intro {
   max-width: 720px;
   margin: 0 0 1.5rem;
