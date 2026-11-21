@@ -29,7 +29,7 @@ from plain userland PHP with no extension loading.
 
 | ID | Finding | Status | Proposed severity |
 | --- | --- | --- | --- |
-| PHP-V1 | OOB read in `mb_regex_substitute()` (`mb_ereg_replace()`) — truncated multi-byte lead byte in the replacement copies uninitialized heap bytes into the result | Confirmed (runtime) | High (7.5) |
+| PHP-V1 | OOB read in `mb_regex_substitute()` (`mb_ereg_replace()`) — truncated multi-byte lead byte in the replacement copies uninitialized heap bytes into the result | Confirmed (runtime); advisory [GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6) marked duplicate | High (7.5) |
 | PHP-V2 | RFC 3986 recomposition integer wrap + suppressed `uriToStringA` failure (release-build UB) → `zend_string` of length `INT_MAX` returned completely uninitialized | Confirmed (runtime); disclosed as **CVE-2026-129438** (Moderate, CVSS 6.3, fixed in 8.5.13) | High (5.9–7.4) proposed |
 | PHP-V3 | WHATWG `context` property uses unbounded `strlen()` on interior pointers | Partially confirmed | Low |
 | PHP-V4 | `bcround()` with `PHP_INT_MIN` precision → uncatchable ~9.2 EB allocation fatal | Confirmed (runtime) | Low (3.7) |
@@ -48,9 +48,9 @@ PHP-V2 was submitted through the PHP security advisory process and
 published on 2026-11-19 as
 [GHSA-mg3p-mxj9-g2mm](https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm#event-1404536)
 — **CVE-2026-129438**, Moderate (CVSS 6.3), CWE-190/CWE-252, affecting
-PHP ≥ 8.5.0 and fixed in 8.5.13. A duplicate advisory
-[GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6)
-was also filed for the same issue. The remaining findings were unpatched
+PHP ≥ 8.5.0 and fixed in 8.5.13. The advisory filed for PHP-V1,
+[GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6),
+was marked duplicate. The remaining findings were unpatched
 at the audited commit; their complete report set (`REPORT-main.md` plus
 per-finding sub-reports) is prepared for the PHP security advisory
 process (GHSA → CVE via the PHP CNA).

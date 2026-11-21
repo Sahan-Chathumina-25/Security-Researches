@@ -22,7 +22,7 @@ in the repository.
 
 | ID | Project | Finding | Class | Proposed severity |
 | --- | --- | --- | --- | --- |
-| PHP-V1 | PHP | OOB read in `mb_ereg_replace()` replacement walk | OOB read / info leak | High (7.5) |
+| PHP-V1 | PHP | OOB read in `mb_ereg_replace()` replacement walk | OOB read / info leak | High (7.5) — advisory [GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6) marked duplicate |
 | PHP-V2 | PHP | RFC 3986 recomposition int wrap → uninitialized `INT_MAX` string | Integer overflow / info leak | High (5.9–7.4) proposed — **CVE-2026-129438** (Moderate, 6.3) |
 | PHP-V4 | PHP | `bcround()` `PHP_INT_MIN` → uncatchable ~9.2 EB alloc | Availability | Low (3.7) |
 | SSL-CCM-1 | OpenSSL | CCM IV parameter getters OOB heap read | OOB heap read | Medium (~5.9) |
@@ -40,9 +40,9 @@ XRDP-003..007 are five findings; with XRDP-001/002 the xrdp total is seven
 confirmed. Severity values are researcher proposals subject to vendor
 triage; no CVSS score here is authoritative. One CVE has been assigned so
 far: CVE-2026-129438 for PHP-V2 (Moderate, CVSS 6.3, fixed in PHP 8.5.13);
-a duplicate advisory
-[GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6)
-exists for the same issue.
+the advisory filed for PHP-V1,
+[GHSA-hg3p-r5r9-76r6](https://github.com/php/php-src/security/advisories/GHSA-hg3p-r5r9-76r6),
+was marked duplicate.
 
 ## Potential findings (5)
 
